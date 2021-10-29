@@ -12,7 +12,7 @@ class DetailPage extends StatelessWidget {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            'Home',
+            'Detail Page',
             style: primaryTextStyle.copyWith(
               fontSize: 18,
               fontWeight: semiBold,
@@ -22,9 +22,9 @@ class DetailPage extends StatelessWidget {
           automaticallyImplyLeading: false,
           elevation: 0,
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pop(context),
             icon: Image.asset(
-              'assets/setting_icon.png',
+              'assets/icon_back.png',
               width: 26,
             ),
           ),
@@ -32,8 +32,31 @@ class DetailPage extends StatelessWidget {
             IconButton(
               onPressed: () {},
               icon: Image.asset(
-                'assets/notication_icon.png',
+                'assets/icon_favorite.png',
                 width: 26,
+                color: Color(0xff292A2D),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget content() {
+      return Container(
+        margin: EdgeInsets.only(top: 42),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/icon_company_logo.png',
+              width: 100,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Senior Product Designer',
+              style: primaryTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: bold,
               ),
             ),
           ],
@@ -42,9 +65,11 @@ class DetailPage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: kBackgroundColor1,
       body: ListView(
         children: [
           header(),
+          content(),
         ],
       ),
     );
